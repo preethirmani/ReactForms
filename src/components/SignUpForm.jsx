@@ -2,7 +2,7 @@ import React from "react";
 import {useState} from 'react';
 import {API_SIGNUP} from '../Constants.js'
 
-const SignUpForm = () => {
+const SignUpForm = ({ setToken }) => {
   const [username, setUserName] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
@@ -26,7 +26,8 @@ const SignUpForm = () => {
 
       const json = await response.json();
       console.log(json);
-      console.log(json.message);
+      console.log(json.token);
+      setToken(json.token);
       
 
     } catch(error) {
