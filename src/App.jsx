@@ -9,10 +9,8 @@ const [token, setToken] = useState(null);
 
   return (
     <>
-      <SignUpForm setToken={setToken}/>
-      { token && 
+      <SignUpForm setToken={setToken}/>   
       <Authenticate token = {token}/>
-      }
     </>
   )
 }
