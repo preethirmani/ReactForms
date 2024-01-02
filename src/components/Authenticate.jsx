@@ -6,6 +6,7 @@ import { API_AUTHENTICATE } from "../Constants";
 const Authenticate = (props) => {
 const [error, setError] = useState(null);
 const [successMessage, setSuccessMessage] = useState(null);
+const [userName, setUserName] = useState(null);
 
  async function handleClick(e) {
   console.log('CLicked');
@@ -23,6 +24,8 @@ const [successMessage, setSuccessMessage] = useState(null);
       const result = await response.json();
       console.log(result);
       setSuccessMessage(result.message);
+      setUserName(result.data.username);
+
   }catch(error) {
     console.log(error);
     setError(error.message);
@@ -33,7 +36,7 @@ const [successMessage, setSuccessMessage] = useState(null);
     <>
       <h2>Authenticate</h2>
       {error && <p>{error}</p>}
-      {successMessage && <p>{successMessage}</p>}
+      {successMessage && <p>{userName} {successMessage}</p>}
       <button onClick={handleClick}>AuthenticateToken!!</button>
     </>
   )

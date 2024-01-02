@@ -1,11 +1,16 @@
 import React from "react";
 import {useState} from 'react';
-import {API_SIGNUP} from '../Constants.js'
+import {API_SIGNUP} from '../Constants.js';
+import '../index.css';
 
 const SignUpForm = ({ setToken }) => {
   const [username, setUserName] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
+  const [formData, setFormData] = useState({
+    username : '',
+    password : ''
+  })
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -43,12 +48,14 @@ const SignUpForm = ({ setToken }) => {
       {error && <p> {error} </p>}
       <form onSubmit={handleSubmit}>
         <label>UserName : {''}
-          <input type="text" value={username} 
+          <input type="text" value={username}
+           minLength={8} required
           onChange={(e) => setUserName(e.target.value)}/>
         </label> <br />
 
         <label> Password : {''}
           <input type="password" value={password} 
+            required minLength={8}
             onChange={(e) => setPassword(e.target.value)}/>
         </label> <br />
 
