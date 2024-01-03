@@ -1,6 +1,6 @@
 import {useState} from 'react';
-import SignUpForm from './components/signupForm';
-import Authenticate from './components/Authenticate';
+import SignUpForm from './components/signupForm.jsx';
+import Authenticate from './components/Authenticate.jsx';
 import './App.css'
 
 function App() {
