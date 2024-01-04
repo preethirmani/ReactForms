@@ -3,7 +3,7 @@ import {useState} from 'react';
 import {API_SIGNUP} from '../Constants.js';
 import '../index.css';
 
-const SignUpForm = ({ setToken }) => {
+const SignupForm = ({ setToken }) => {
   const [username, setUserName] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
@@ -52,7 +52,9 @@ const SignUpForm = ({ setToken }) => {
         <label>UserName : {''}
           <input type="text" value={username}
            minLength={8} 
-          onChange={(e) => setUserName(e.target.value)}/>
+          onChange={(e) => {
+            setSuccessMessage(null);
+            setUserName(e.target.value)}}/>
         </label> <br />
 
         <label> Password : {''}
@@ -66,4 +68,4 @@ const SignUpForm = ({ setToken }) => {
   )
 }
 
-export default SignUpForm;
+export default SignupForm;

@@ -36,6 +36,10 @@ const [userName, setUserName] = useState(null);
   const clearError = () => {
     setError(null);
   }
+
+  const clearSuccess = () => {
+    setSuccessMessage(null);
+  }
   return(
     <>
       <h2>Authenticate</h2>
