@@ -9,7 +9,9 @@ const [token, setToken] = useState(null);
 
   return (
     <>
+      <SignupForm setToken={setToken} />
       <Authenticate token = {token}/>
+      
     </>
   )
 }
